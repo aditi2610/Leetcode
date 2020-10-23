@@ -9,6 +9,7 @@ public class Solution_maxSumClosest {
         int opt = 0;
         Set<Integer> sums = new HashSet<>();
         sums.add(opt);
+        System.out.println("hello");
 
         // loop over all input values
         for (Integer input : inputs) {
