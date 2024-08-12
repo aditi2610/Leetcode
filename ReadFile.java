@@ -21,22 +21,21 @@ class ReadFile{
             String line;
             while(true){
                 line = reader.readLine();
-
-                if(line == null){
+                // If we see an empty line or we reach the end of File
+                // add cList to the res and reset the cList
+                if(line == null || line.trim().isEmpty() ){
                     if(!cList.isEmpty()){
-                        list.add(cList);
-                    }
-                    break;
-                }
-                if(line.trim().isEmpty()){
-                    if(cList.size() > 0){
                         list.add(new ArrayList(cList));
                         cList.clear();
                     }
-                }else{
+                    // if this is the end of file, break out of the loop
+                    if(line == null)
+                        break;
+                }
+                else{
+                    // add current line to the current List
                     cList.add(line);
                 }
-
             }
         }catch(IOException io){
             System.out.println("Error Reading File: "+ io.getMessage());
